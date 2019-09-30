@@ -1,0 +1,105 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{imports}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Some useful macros for section,   %%%
+%%% figure, and table referencing...  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\citesec}[1]{Section~\ref{sec:#1}}
+\newcommand{\citefig}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\citealgo}[1]{\textsc{Listing}~\ref{algo:#1}}
+\newcommand{\citelisting}[1]{\textsc{Listing}~\ref{lst:#1}}
+\newcommand{\citetable}[1]{{Table}~\ref{tab:#1}}
+ \newcommand{\etal}{\latinphrase{et~al.}\xspace}
+\newcommand{\ie}{\latinphrase{i.e.}\xspace}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Header / Footer configuration   %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\lhead{\footnotesize{\selectfont \seminar\\\institute}}
+\cfoot{\thepage~/~\pageref{LastPage}}
+
+\renewcommand{\headrulewidth}{0.9pt}
+\renewcommand{\footrulewidth}{0.9pt}
+
+\rhead{
+\begin{picture}(22.7,0)
+ \put(14.5,-0.4){\includegraphics[width=2.5cm]{figures/cover/jku_en}}
+ \end{picture}
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Language selection              %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newif\ifeng
+\engtrue
+%\engfalse
+
+\ifeng
+\else
+\renewcommand*\listfigurename{Abbildungsverzeichnis}
+\renewcommand*\listtablename{Tabellenverzeichnis}
+\renewcommand*\refname{Referenzliste}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Configure your paper here:      %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\seminar}{Seminar aus Software Engineering}
+\newcommand{\institute}{Institut für Wirtschaftsinformatik -- Software Engineering}
+\newcommand{\papertitle}{my first seminar paper...}
+\newcommand{\name}{Author Name}
+\newcommand{\supervisor}{Supervisor Name}
+\newcommand{\submitted}{10 2019}
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Coverpage, don't change...      %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+\newgeometry{top=20mm,bottom=40mm,textwidth=16.7cm,left=20mm,right=-20mm}
+\afterpage{\aftergroup\restoregeometry}
+\input{coversheet}
+\clearpage
+\setcounter{page}{1}
+\pagestyle{fancy}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Content goes here:              %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{introduction}
+\input{relwork}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% List of tables, figures,         %%%%
+%%% references...                    %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{spacing}{0.9}
+\listoffigures
+\listoftables
+
+
+
+%\bibliographystyle{abbrv}
+%\bibliographystyle{apalike}
+\bibliographystyle{alpha}
+\bibliography{references}
+\end{spacing}
+
+\end{document}
