@@ -1,5 +1,37 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{imports}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Some layouting optimizations      %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%% reduce the huge space between enum and itemize elements...
+\let\tempone\itemize
+\let\temptwo\enditemize
+\let\tempthree\enumerate
+\let\tempfour\endenumerate
+\renewenvironment{itemize}{\tempone\addtolength{\itemsep}{-0.5\baselineskip}}{\temptwo}
+\renewenvironment{enumerate}{\tempthree\addtolength{\itemsep}{-0.5\baselineskip}}{\tempfour}
+ 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Header / Footer configuration   %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\lhead{\footnotesize{\selectfont \seminar\\\institute}}
+%\cfoot{\thepage~/~\pageref{LastPage}}
+\rfoot{\thepage}\cfoot{}
+
+\renewcommand{\headrulewidth}{0.9pt}
+\renewcommand{\footrulewidth}{0.9pt}
+
+
+\rhead{
+\begin{picture}(22.7,0)
+ \put(14.5,-0.4){\includegraphics[width=2.5cm]{figures/cover/jku_en}}
+ \end{picture}
+ }
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Some useful macros for section,   %%%
@@ -14,21 +46,7 @@
  \newcommand{\etal}{\latinphrase{et~al.}\xspace}
 \newcommand{\ie}{\latinphrase{i.e.}\xspace}
  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%  Header / Footer configuration   %%%% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
-\lhead{\footnotesize{\selectfont \seminar\\\institute}}
-\cfoot{\thepage~/~\pageref{LastPage}}
-
-\renewcommand{\headrulewidth}{0.9pt}
-\renewcommand{\footrulewidth}{0.9pt}
-
-\rhead{
-\begin{picture}(22.7,0)
- \put(14.5,-0.4){\includegraphics[width=2.5cm]{figures/cover/jku_en}}
- \end{picture}
- }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Language selection              %%%% 
@@ -76,12 +94,7 @@
 
 
 \input{introduction}
-\input{relwork}
-
-
-
-
-
+\input{examples}
 
 
 
@@ -93,7 +106,6 @@
 \begin{spacing}{0.9}
 \listoffigures
 \listoftables
-
 
 
 %\bibliographystyle{abbrv}
