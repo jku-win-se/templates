@@ -1,0 +1,249 @@
+\documentclass[%draft%,BCOR=1mm,
+rgb,main=american,twoside,pdftex,fontsize=11pt,chapterprefix,cleardoublepage=empty,listof=totoc,bibliography=totoc,numbers=noenddot,headsepline,%footsepline,footinclude=false,headinclude=false
+]{memoir}
+\usepackage{import}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% JKU Wirtschaftsinformatik Thesis template                          %%%
+%%% Michael Vierhauser, Institut fuer Wirtschaftsinformatik, Nov 2019  %%%
+%%% Coversheet by: Andreas Neubauer, May 2016                          %%%    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%CONFIG-PROPERTY 1: Language: select between german and englisch       %%%
+%CONFIG-PROPERTY 2: Thesis Type: select between bachelor, master, phd  %%%
+%CONFIG-PROPERTY 3: Degree: select your degree                         %%%
+%CONFIG-PROPERTY 4: Cover Sheet Info: supervisor, etc.                 %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapterstyle{madsen}
+%\chapterstyle{veelo}
+
+\newcommand{\documentlanguage}[1]{\newcommand\usedlanguage{#1}}
+
+% Set PDF document properties
+\hypersetup{
+    pdfpagelayout   = TwoPageRight
+}
+
+%\setsecnumdepth{subsection} % Enumerate subsections.
+
+%\nonzeroparskip             % Create space between paragraphs (optional).
+\setlength{\parindent}{0pt} % Remove paragraph identation (optional).
+
+\makeindex      % Use an optional index.
+\makeglossaries % Use an optional glossary.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Some useful macros for section,   %%%
+%%% figure, and table referencing...  %%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\citechap}[1]{Chapter~\ref{chap:#1}}
+\newcommand{\citesec}[1]{Section~\ref{sec:#1}}
+\newcommand{\citefig}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\citealgo}[1]{\textsc{Listing}~\ref{algo:#1}}
+\newcommand{\citelisting}[1]{\textsc{Listing}~\ref{lst:#1}}
+\newcommand{\citetable}[1]{{Table}~\ref{tab:#1}}
+ \newcommand{\etal}{\latinphrase{et~al.}\xspace}
+\newcommand{\ie}{\latinphrase{i.e.}\xspace}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% some colors                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{pink}{rgb}{0.9,0,0.9}
+\definecolor{gray}{rgb}{0.95,0.95,0.85}
+\definecolor{mauve}{rgb}{0.1,0.7,0.2}
+\definecolor{bg}{rgb}{0.95,0.95,0.9} 
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+
+\newcommand{\note}[1]{\textbf{\textcolor{purple}{#1}}}
+\newcommand{\commnt}[1]{\textbf{\textcolor{dkgreen}{#1}}}  
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Header / Footer configuration   %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \clearscrheadfoot
+\pagestyle{scrheadings}
+
+\rofoot[\pagemark]{\pagemark}
+\lefoot[\pagemark]{\pagemark}
+
+\newif\ifeng
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% CONFIG-PROPERTY 1: %%%%%%%%%
+%%%% Language selection              %%%% 
+%%%% Uncomment                       %%%% 
+%%%% \engtrue for english or        %%%% 
+%%%% \engfalse for german            %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\engtrue
+\engfalse
+
+
+
+\ifeng
+\selectlanguage{american}
+\else
+\selectlanguage{ngerman}
+\fi
+
+
+
+
+
+% \documentlanguage{engl}
+% \ifx\usedlanguage\engl
+% \engtrue
+% \else
+% \engfalse
+% \fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% CONFIG-PROPERTY 2: %%%%%%%%%
+%%%% Thesis type                     %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% choose type of work: 0 ... Dissertation
+%                      1 ... Diplomarbeit
+%                      2 ... Masterarbeit
+%                      3 ... Bachelorarbeit
+\def\type{3}
+% enter name of degree, see examples below (as stated in your curriculum)
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% CONFIG-PROPERTY 3: %%%%%%%%%
+%%%% Degree                          %%%% 
+%%%% Select your degree type          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Master/Bacc Studium - e.g.:
+%\def\degree{Bachelor of Science}
+%\def\degree{Master of Science}
+%\def\degree{Diplom-Ingenieur}
+
+% e.g. Doktorratsstudium - e.g.:
+%\def\degree{Doktor der technischen Wissenschaften}
+\def\degree{Doktor der Sozialwissenschaften}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% CONFIG-PROPERTY 4: %%%%%%%%%
+%%%% Cover sheet info                %%%% 
+%%%% Enter your details here          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\institute}{Institut für\\ Wirtschaftsinformatik\\Software Engineering}
+\newcommand{\thtitle}{my thesis...}
+\newcommand{\name}{Name}
+\newcommand{\supervisor}{First Supervisor}
+\newcommand{\secondexaminer}{Second Examiner}
+\newcommand{\assist}{Co-Supervisor}
+\newcommand{\submitted}{10 2019}
+\newcommand{\study}{Wirtschaftsinformatik}
+
+\setcounter{subsection}{1}
+\setcounter{section}{1}
+
+\usepackage[a4paper,width=150mm,top=35mm,bottom=50mm,outer=20mm, inner=35mm,]{geometry}
+\begin{document}
+\frontmatter % Switches to roman numbering.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Coverpage, don't change...      %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{empty}
+% \newgeometry{top=20mm,bottom=40mm,textwidth=16.7cm,left=20mm,right=-20mm}
+\afterpage{\aftergroup\restoregeometry}
+\input{coversheet}
+\cleardoublepage
+\setcounter{page}{1}
+\frontmatter
+\pagestyle{scrheadings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Set german headings if selected %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifeng
+\newcommand*\statement{Sworn Statement}
+\newcommand*\ack{Acknowledgments} 
+\else
+\renewcommand*\listfigurename{Abbildungsverzeichnis}
+\renewcommand*\listtablename{Tabellenverzeichnis}
+\newcommand*\statement{Eidesstattliche Erklärung}
+\renewcommand{\bibname}{Referenzen}
+\renewcommand{\contentsname}{Inhaltsverzeichnis} 
+\newcommand*\ack{Danksagung} 
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Content goes here:              %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\input{acknowledgements}
+
+\input{kurzfassung}
+\input{abstract}
+\cleardoublepage
+
+
+
+
+\tableofcontents*
+\cleardoublepage
+
+\mainmatter
+
+\input{intro.tex}
+\input{examples.tex}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% List of tables, figures,         %%%%
+%%% references...                    %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+\listoffigures
+\cleardoublepage
+
+\listoftables
+
+
+
+% Add a glossary.
+\printglossaries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Select bibliography style       %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bibliographystyle{abbrv}
+%\bibliographystyle{apalike}
+\bibliographystyle{alpha}
+\bibliography{references}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Mandatory last page:             %%%%
+%%% Eidesstattliche Erklärung        %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{eidesstattliche}
+
+\end{document}
