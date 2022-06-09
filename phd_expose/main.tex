@@ -1,0 +1,164 @@
+%\documentclass[12pt,a4paper]{article}
+\documentclass[rgb,pdftex, oneside, fontsize=12pt,chapterprefix,cleardoublepage=empty,listof=totoc,bibliography=totoc,numbers=noenddot,headsepline,%footsepline,footinclude=false,headinclude=false
+]{memoir}
+\usepackage{import}
+\linespread{1.3}\selectfont
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% JKU Wirtschaftsinformatik Thesis template                          %%%
+%%% Daniel Lehner, Institut fuer Wirtschaftsinformatik, Jun 2022       %%
+%%% Coversheet by: Andreas Neubauer, May 2016                          %%%    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%CONFIG-PROPERTY 1: Degree: select your degree                         %%%
+%CONFIG-PROPERTY 2: Cover Sheet Info: supervisor, etc.                 %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\chapterstyle{veelo}
+
+
+% Set PDF document properties
+\hypersetup{
+    pdfpagelayout   = TwoPageRight
+}
+
+%\setsecnumdepth{subsection} % Enumerate subsections.
+
+%\nonzeroparskip             % Create space between paragraphs (optional).
+\setlength{\parindent}{0pt} % Remove paragraph identation (optional).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Some useful macros for section,   %%%
+%%% figure, and table referencing...  %%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\citechap}[1]{Chapter~\ref{chap:#1}}
+\newcommand{\citesec}[1]{Section~\ref{sec:#1}}
+\newcommand{\citefig}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\citealgo}[1]{\textsc{Listing}~\ref{algo:#1}}
+\newcommand{\citelisting}[1]{\textsc{Listing}~\ref{lst:#1}}
+\newcommand{\citetable}[1]{{Table}~\ref{tab:#1}}
+ \newcommand{\etal}{\latinphrase{et~al.}\xspace}
+\newcommand{\ie}{\latinphrase{i.e.}\xspace}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% some colors                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{pink}{rgb}{0.9,0,0.9}
+\definecolor{gray}{rgb}{0.95,0.95,0.85}
+\definecolor{mauve}{rgb}{0.1,0.7,0.2}
+\definecolor{bg}{rgb}{0.95,0.95,0.9} 
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+
+\newcommand{\note}[1]{\textbf{\textcolor{purple}{#1}}}
+\newcommand{\commnt}[1]{\textbf{\textcolor{dkgreen}{#1}}}  
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Header / Footer configuration   %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \clearscrheadfoot
+%\pagestyle{scrheadings}
+
+\rofoot[\pagemark]{\pagemark}
+\lefoot[\pagemark]{\pagemark}
+
+\selectlanguage{american}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% CONFIG-PROPERTY 1: %%%%%%%%%
+%%%% Degree                          %%%% 
+%%%% Select your degree type          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Master/Bacc Studium - e.g.:
+%\def\degree{Bachelor of Science}
+%\def\degree{Master of Science}
+%\def\degree{Diplom-Ingenieur}
+
+% e.g. Doktorratsstudium - e.g.:
+%\def\degree{Doktor der technischen Wissenschaften}
+\def\degree{Doktor der Sozialwissenschaften}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% CONFIG-PROPERTY 2: %%%%%%%%%
+%%%% Cover sheet info                %%%% 
+%%%% Enter your details here          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\institute}{Institut für\\ Wirtschaftsinformatik\\Software Engineering}
+\newcommand{\thtitle}{Thesis Title}
+\newcommand{\name}{Name}
+\newcommand{\supervisor}{First Supervisor}
+\newcommand{\secondexaminer}{Second Examiner}
+\newcommand{\assist}{Co-Supervisor}
+\newcommand{\submitted}{10 2019}
+\newcommand{\study}{Sozial- und Wirtschaftswissenschaften}
+
+\setcounter{subsection}{1}
+\setcounter{section}{1}
+
+\usepackage[a4paper,width=150mm,top=35mm,bottom=50mm,outer=20mm, inner=35mm,]{geometry}
+\begin{document}
+\frontmatter % Switches to roman numbering.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Coverpage, don't change...      %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{empty}
+% \newgeometry{top=20mm,bottom=40mm,textwidth=16.7cm,left=20mm,right=-20mm}
+\afterpage{\aftergroup\restoregeometry}
+\input{coversheet}
+\setcounter{page}{1}
+\frontmatter
+\pagestyle{scrheadings}
+
+\renewcommand{\bibname}{References}
+\renewcommand{\contentsname}{Table of Contents} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Content goes here:              %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\input{abstract}
+\tableofcontents*
+
+
+\input{intro.tex}
+\input{examples.tex}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% List of tables, figures,         %%%%
+%%% references...                    %%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+% Add a glossary.
+\printglossaries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Select bibliography style       %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bibliographystyle{abbrv}
+%\bibliographystyle{apalike}
+\bibliographystyle{alpha}
+\bibliography{references}
+
+
+
+
+\end{document}
