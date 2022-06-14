@@ -4,15 +4,6 @@
 \usepackage{import}
 \linespread{1.3}\selectfont
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% JKU Wirtschaftsinformatik Thesis template                          %%%
-%%% Daniel Lehner, Institut fuer Wirtschaftsinformatik, Jun 2022       %%
-%%% Coversheet by: Andreas Neubauer, May 2016                          %%%    
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%CONFIG-PROPERTY 1: Degree: select your degree                         %%%
-%CONFIG-PROPERTY 2: Cover Sheet Info: supervisor, etc.                 %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %\chapterstyle{veelo}
 
 
@@ -67,36 +58,19 @@
 \lefoot[\pagemark]{\pagemark}
 
 \selectlanguage{american}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%% CONFIG-PROPERTY 1: %%%%%%%%%
-%%%% Degree                          %%%% 
-%%%% Select your degree type          %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Master/Bacc Studium - e.g.:
-%\def\degree{Bachelor of Science}
-%\def\degree{Master of Science}
-%\def\degree{Diplom-Ingenieur}
-
-% e.g. Doktorratsstudium - e.g.:
-%\def\degree{Doktor der technischen Wissenschaften}
-\def\degree{Doktor der Sozialwissenschaften}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%% CONFIG-PROPERTY 2: %%%%%%%%%
-%%%% Cover sheet info                %%%% 
-%%%% Enter your details here          %%%
+%%%%%%%%%%%% CONFIG HERE %%%%%%%%%%%%%%%%
+%%%%    Cover sheet info             %%%% 
+%%%%  Enter your details here         %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\institute}{Institut für\\ Wirtschaftsinformatik\\Software Engineering}
 \newcommand{\thtitle}{Thesis Title}
 \newcommand{\name}{Name}
 \newcommand{\supervisor}{First Supervisor}
-\newcommand{\secondexaminer}{Second Examiner}
 \newcommand{\assist}{Co-Supervisor}
 \newcommand{\submitted}{10 2019}
+\def\degree{Doktor der Sozialwissenschaften}
 \newcommand{\study}{Sozial- und Wirtschaftswissenschaften}
 
 \setcounter{subsection}{1}
@@ -119,7 +93,6 @@
 \pagestyle{scrheadings}
 
 \renewcommand{\bibname}{References}
-\renewcommand{\contentsname}{Table of Contents} 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -130,11 +103,15 @@
 
 
 \input{abstract}
-\tableofcontents*
+\clearpage
+\pagenumbering{arabic}
 
-
-\input{intro.tex}
-\input{examples.tex}
+\input{./sections/intro.tex}
+\input{./sections/SoA.tex}
+\input{./sections/Solution.tex}
+\input{./sections/Contributions.tex}
+\input{./sections/methods.tex}
+\input{./sections/plan.tex}
 
 
 
@@ -144,11 +121,6 @@
 %%% references...                    %%%% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-
-% Add a glossary.
-\printglossaries
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Select bibliography style       %%%%
