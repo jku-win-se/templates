@@ -5,6 +5,7 @@
 \linespread{1.3}\selectfont
 
 %\chapterstyle{veelo}
+%\chapterstyle{section}
 
 
 % Set PDF document properties
@@ -89,6 +90,7 @@
 \afterpage{\aftergroup\restoregeometry}
 \input{coversheet}
 \setcounter{page}{1}
+\setcounter{chapter}{1}
 \frontmatter
 \pagestyle{scrheadings}
 
@@ -106,12 +108,12 @@
 \clearpage
 \pagenumbering{arabic}
 
-\input{./sections/intro.tex}
-\input{./sections/SoA.tex}
-\input{./sections/Solution.tex}
-\input{./sections/Contributions.tex}
-\input{./sections/methods.tex}
-\input{./sections/plan.tex}
+\input{./sections/01_Intro.tex}
+\input{./sections/02_SoA.tex}
+\input{./sections/03_Novelty.tex}
+\input{./sections/04_Plan.tex}
+\input{./sections/05_Evaluation.tex}
+%\input{./sections/plan.tex}
 
 
 
