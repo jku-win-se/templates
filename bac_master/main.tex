@@ -1,6 +1,4 @@
-\documentclass[%draft%,BCOR=1mm,
-rgb,main=american,twoside,pdftex,fontsize=11pt,chapterprefix,cleardoublepage=empty,listof=totoc,bibliography=totoc,numbers=noenddot,headsepline,%footsepline,footinclude=false,headinclude=false
-]{memoir}
+\documentclass[11pt,twoside,main=american]{memoir}
 \usepackage{import}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -13,6 +11,10 @@ rgb,main=american,twoside,pdftex,fontsize=11pt,chapterprefix,cleardoublepage=emp
 %CONFIG-PROPERTY 3: Degree: select your degree                         %%%
 %CONFIG-PROPERTY 4: Cover Sheet Info: supervisor, etc.                 %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% Comment in the preferred chapter style
 \chapterstyle{madsen}
 %\chapterstyle{veelo}
 
@@ -35,7 +37,6 @@ rgb,main=american,twoside,pdftex,fontsize=11pt,chapterprefix,cleardoublepage=emp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Some useful macros for section,   %%%
 %%% figure, and table referencing...  %%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\citechap}[1]{Chapter~\ref{chap:#1}}
 \newcommand{\citesec}[1]{Section~\ref{sec:#1}}
@@ -150,7 +151,7 @@ rgb,main=american,twoside,pdftex,fontsize=11pt,chapterprefix,cleardoublepage=emp
 \setcounter{subsection}{1}
 \setcounter{section}{1}
 
-\usepackage[a4paper,width=150mm,top=35mm,bottom=50mm,outer=20mm, inner=35mm,]{geometry}
+\usepackage[a4paper,top=35mm,bottom=50mm,outer=20mm,inner=35mm,]{geometry}
 \begin{document}
 \frontmatter % Switches to roman numbering.
 
@@ -159,7 +160,6 @@ rgb,main=american,twoside,pdftex,fontsize=11pt,chapterprefix,cleardoublepage=emp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagestyle{empty}
-% \newgeometry{top=20mm,bottom=40mm,textwidth=16.7cm,left=20mm,right=-20mm}
 \afterpage{\aftergroup\restoregeometry}
 \input{coversheet}
 \cleardoublepage
